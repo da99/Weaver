@@ -105,7 +105,7 @@ function Select_Map_Paginate(x: F.Expr) {
   );
 } // func
 
-class Fauna_Sync {
+class Weaver {
   client: F.Client;
 
   __old_schema: Old_Schema | null;
@@ -267,7 +267,7 @@ function find_name(arr: Array<Param_Object>, name_value: string) {
   return arr.find(x => x.name === name_value);
 } // function
 
-export { Fauna_Sync };
+export { Weaver };
 
 // CreateRole({
 //   name: "cloudflare_worker_function",

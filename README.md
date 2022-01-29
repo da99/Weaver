@@ -1,4 +1,4 @@
-# fauna_sync
+# Weaver
 Copy the "schema" of one FaunaDB database to another.
 
 # ts-node

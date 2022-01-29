@@ -1,7 +1,7 @@
 
 import {default as F} from "faunadb";
 import * as FS from "fs";
-import {Fauna_Sync} from "./Fauna_Sync";
+import {Weaver} from "./Weaver";
 const {
   Paginate,
   Collections, Get,
@@ -34,7 +34,7 @@ function read_file_fn(f_name: string) {
 };
 
 
-const fauna_sync = new Fauna_Sync({
+const fauna_sync = new Weaver({
   secret: process.env.FAUNA_SECRET,
   domain: process.env.FAUNA_DOMAIN
 });
