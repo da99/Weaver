@@ -1,5 +1,18 @@
 {
+  "compilerOptions": {
+    "module": "esnext",
+    "esModuleInterop": true,
+    "target": "es2017"
+  },
+  "main": "src/main.ts",
+  "license": "MIT",
+  "module": "CommonJS",
   "dependencies": {
     "faunadb": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.13",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
   }
 }
