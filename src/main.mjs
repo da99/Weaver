@@ -53,14 +53,29 @@ async function get_schema() {
   return result;
 } // func
 
-async function main() {
-  const fauna_sync = new Fauna_Sync({
-    secret: process.env.FAUNA_SECRET,
-    domain: process.env.FAUNA_DOMAIN
-  });
-  const schema = await fauna_sync.load_schema();
-  console.log(schema);
-} // func
-main();
 
+const fauna_sync = new Fauna_Sync({
+  secret: process.env.FAUNA_SECRET,
+  domain: process.env.FAUNA_DOMAIN
+});
 
+fauna_sync.CreateRole({
+  name: "cloudflare_worker_function",
+  privileges: [
+    {
+      resource: Collection("screen_name"),
+      actions: {
+        read: true,
+        write: true,
+        create: true,
+        delete: false,
+        history_read: false,
+        history_write: false,
+        unrestricted_read: false
+      }
+    }
+  ]
+}) ;
+
+await fauna_sync.load_schema();
+fauna_sync.diff().forEach(x => console.log(`${x.action} ${x.resource_type} ${x.resource_name}`));
