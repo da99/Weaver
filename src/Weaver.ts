@@ -1,6 +1,5 @@
 
-import {default as F} from "faunadb";
-// import * as FS from "fs";
+import {F} from "./FaunaDB.ts";
 
 type Privilege = {
   resource: F.Expr,
